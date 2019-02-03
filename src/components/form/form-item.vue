@@ -61,7 +61,6 @@ export default {
     },
     validate(trigger, callback = function() {}) {
       let rules = this.getFilteredRule(trigger);
-      console.log("rules", rules, "trigger", trigger);
       if (!rules || rules.length === 0) {
         return true;
       }
