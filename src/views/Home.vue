@@ -1,24 +1,36 @@
 <template>
   <div class="home">
-    <CheckboxGroup v-model="test">
-      <Checkbox label="test">aa</Checkbox>
-      <Checkbox label="test2">ss</Checkbox>
-    </CheckboxGroup>
+    <i-display :code="code"></i-display>
+    <button @click="click">按钮</button>
+    <button @click="handleOpen2">打开提示 2</button>
   </div>
 </template>
 
 <script>
-import Checkbox from "components/checkbox/checkbox";
-import CheckboxGroup from "components/checkbox/checkbox-group";
+import iDisplay from "components/display/display";
+import defaultCode from "./default-code.js";
 export default {
-  components: { Checkbox, CheckboxGroup },
+  components: { iDisplay },
   name: "home",
   data() {
     return {
-      test: ["test"]
+      code: defaultCode
     };
   },
   mounted() {},
+  methods: {
+    click() {
+      this.$Alert.info({
+        content: "我是提示信息 1"
+      });
+    },
+    handleOpen2() {
+      this.$Alert.info({
+        content: "我是提示信息 2",
+        duration: 3
+      });
+    }
+  },
   computed: {}
 };
 </script>
